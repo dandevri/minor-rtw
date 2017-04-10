@@ -38,6 +38,9 @@ Please read [Contributing](contributing.md) for details on how to contribute to 
 
 To see a list of everybody who participated go to the [Contributors](https://github.com/dandevri/minor-rtw/graphs/contributors) page.
 
+## Todo's
+To see all upcoming todo's and features please navigate to the [GitHub Projects](https://github.com/dandevri/minor-rtw/projects/) page of this repo.
+
 ## License
 
 This project is licensed under the [MIT](LICENSE.MD) License - © Danny de Vries 2017
