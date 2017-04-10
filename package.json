@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "xo",
-    "watch": "browser-sync start -s -f . && nodemon index.js "
+    "watch": "browser-sync start -s -f ."
   },
   "repository": {
     "type": "git",
@@ -20,6 +20,7 @@
   "homepage": "https://github.com/dandevri/minor-rtw#readme",
   "devDependencies": {
     "browser-sync": "^2.18.8",
+    "express": "^4.15.2",
     "nodemon": "^1.11.0",
     "xo": "^0.18.1"
   },
