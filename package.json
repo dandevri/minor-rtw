@@ -5,8 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "xo",
-    "watch": "browser-sync start -s -f .",
-    "start": "nodemon server.js"
+    "watchify": "nodemon server.js"
   },
   "repository": {
     "type": "git",
