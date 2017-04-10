@@ -34,6 +34,9 @@ Great success, it has works! :tada:
 * [Express](https://expressjs.com/) - Web framework for Node.js
 * [Socket.io](https://socket.io/) - Real-time event-based communication
 
+### Dependencies
+* [Nodemon](https://github.com/remy/nodemon)
+
 ## Contributing
 
 Please read [Contributing](contributing.md) for details on how to contribute to this project.
