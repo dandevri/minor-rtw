@@ -21,7 +21,7 @@ These instructions will get you a copy of the project up and running on your loc
 Here are the instructions to get your project up and running.
 
 1. Clone this project to your local machine
-
+˜
 ```
 $ git clone https://github.com/dandevri/minor-rtw.git && cd minor-rtw
 ```
