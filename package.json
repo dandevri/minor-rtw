@@ -6,7 +6,6 @@
   "scripts": {
     "test": "xo",
     "watchify": "nodemon server.js",
-    "sync": "browser-sync start -s -f ."
   },
   "repository": {
     "type": "git",
