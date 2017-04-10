@@ -4,7 +4,8 @@
   "description": "Code &amp; documentation for the Minor Class: Real-Time Web 📟",
   "main": "index.js",
   "scripts": {
-    "test": "xo"
+    "test": "xo",
+    "watch": "browser-sync start -s -f . && nodemon index.js "
   },
   "repository": {
     "type": "git",
@@ -18,16 +19,17 @@
   },
   "homepage": "https://github.com/dandevri/minor-rtw#readme",
   "devDependencies": {
+    "browser-sync": "^2.18.8",
+    "nodemon": "^1.11.0",
     "xo": "^0.18.1"
   },
   "xo": {
-   "semicolon": false,
-   "space": true,
-   "env": [
-     "node",
-     "browser"
-   ],
-   "rules": {
-   }
- }
+    "semicolon": false,
+    "space": true,
+    "env": [
+      "node",
+      "browser"
+    ],
+    "rules": {}
+  }
 }
