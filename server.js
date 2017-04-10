@@ -10,6 +10,6 @@ app.get('/', function (req, res) {
   res.render('index');
 });
 
-app.listen(1337, function () {
-  console.log('App is listening on port 1337!');
+app.listen(3000, function () {
+  console.log('App is listening on port 3000!');
 });
