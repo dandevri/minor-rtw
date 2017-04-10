@@ -1,5 +1,7 @@
 # minor-rtw
 
+[![XO code style](https://img.shields.io/badge/code_style-XO-5ed9c7.svg)](https://github.com/sindresorhus/xo)
+
 Code &amp; documentation for the Minor Class: Real-Time Web 📟
 
 ## Introduction

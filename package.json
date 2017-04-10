@@ -2,10 +2,11 @@
   "name": "minor-rtw",
   "version": "1.0.0",
   "description": "Code &amp; documentation for the Minor Class: Real-Time Web 📟",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "test": "xo",
-    "watch": "browser-sync start -s -f ."
+    "watch": "browser-sync start -s -f .",
+    "start": "nodemon server.js"
   },
   "repository": {
     "type": "git",
@@ -13,24 +14,27 @@
   },
   "keywords": [],
   "author": "Danny de Vries",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/dandevri/minor-rtw/issues"
   },
   "homepage": "https://github.com/dandevri/minor-rtw#readme",
   "devDependencies": {
     "browser-sync": "^2.18.8",
-    "express": "^4.15.2",
     "nodemon": "^1.11.0",
     "xo": "^0.18.1"
   },
   "xo": {
-    "semicolon": false,
+    "semicolon": true,
     "space": true,
+    "esnext": false,
     "env": [
       "node",
       "browser"
     ],
     "rules": {}
+  },
+  "dependencies": {
+    "express": "^4.15.2"
   }
 }
