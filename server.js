@@ -3,7 +3,6 @@ var express = require('express');
 var socket = require('socket.io');
 
 var app = express();
-var io = socket(server);
 
 // Set static folder
 app.use(express.static('src'));
@@ -16,10 +15,13 @@ app.get('/', function (req, res) {
 
 // Listen on port
 var server = app.listen(3000);
+var io = socket(server);
 
 // Deal with event connection
 io.sockets.on('connection', newConnection);
 
 function newConnection(socket) {
-  console.log(socket);
+  console.log('You connection is' + socket.id);
+
+  socket.emit('bericht', 'ghello');
 }
