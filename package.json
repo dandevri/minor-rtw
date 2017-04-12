@@ -24,7 +24,11 @@
   },
   "xo": {
     "esnext": false,
-    "space": true
+    "space": true,
+    "env": [
+      "node",
+      "browser"
+    ]
   },
   "dependencies": {
     "ejs": "^2.5.6",
