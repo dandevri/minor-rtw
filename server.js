@@ -20,8 +20,15 @@ var io = socket(server);
 // Deal with event connection
 io.sockets.on('connection', newConnection);
 
+// Function that runs if there is a connection
 function newConnection(socket) {
-  console.log('You connection is' + socket.id);
+  console.log('new connection:' + socket.id);
 
-  socket.emit('bericht', 'ghello');
+  // Do this if you receive message
+  socket.on('message', sendTo);
+
+  function sendTo(data) {
+    // Send to other clients
+    io.emit('message', data);
+  }
 }
