@@ -20,14 +20,24 @@ These instructions will get you a copy of the project up and running on your loc
 
 Here are the instructions to get your project up and running.
 
-1. Clone this project to your local machine
-˜
+1. Clone this project to your local machine and change directory
 ```
 $ git clone https://github.com/dandevri/minor-rtw.git && cd minor-rtw
 ```
 
+1. Install the dependencies
+```
+$ npm install
+```
+1. Start the server
+```
+$ npm start
+```
 
-Great success, it has works! :tada:
+You should see the following message:
+> Message in the command line
+
+Great success, it has works! :tada: Time to dance. :dancer:
 
 ## Built With
 
