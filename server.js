@@ -1,20 +1,34 @@
-// Load libraries and modules
+// Import modules
 var express = require('express');
+var socket = require('socket.io');
 
 var app = express();
 
-// GET, POST etc. go through static folder to look for files
+// Set static folder
 app.use(express.static('src'));
+app.set('views', 'views'); // Specify view directory
+app.set('view engine', 'ejs'); // Specify templating engine
 
-// Set templating engine to ejs
-app.set('view engine', 'ejs');
-app.set('views', 'views');
-
-// Middleware to render page
 app.get('/', function (req, res) {
   res.render('index');
 });
 
-app.listen(3000, function () {
-  console.log('Example app listening on port 3000!');
-});
+// Listen on port
+var server = app.listen(3000);
+var io = socket(server);
+
+// Deal with event connection
+io.sockets.on('connection', newConnection);
+
+// Function that runs if there is a connection
+function newConnection(socket) {
+  console.log('new connection:' + socket.id);
+
+  // Do this if you receive message
+  socket.on('message', sendTo);
+
+  function sendTo(data) {
+    // Send to other clients
+    io.emit('message', data);
+  }
+}
