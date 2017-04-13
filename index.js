@@ -14,7 +14,9 @@ app.get('/', function (req, res) {
 });
 
 // Listen on port
-var server = app.listen(3000);
+var server = app.listen(1337, function () {
+  console.log('Great success! 🎉 The app is running on: localhost:1337')
+});
 var io = socket(server);
 
 // Deal with event connection
