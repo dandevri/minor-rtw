@@ -1,4 +1,4 @@
-var socket = io.connect('https://minor-rtw-znusnddfwy.now.sh/');
+var socket = io();
 
 var data = 'Dit is een bericht';
 
