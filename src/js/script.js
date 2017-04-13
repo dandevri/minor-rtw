@@ -1,4 +1,4 @@
-var socket = io.connect('http://localhost:3000');
+var socket = io.connect('https://minor-rtw-znusnddfwy.now.sh/');
 
 var data = 'Dit is een bericht';
 

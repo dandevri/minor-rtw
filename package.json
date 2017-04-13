@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "xo",
-    "watchify": "nodemon server.js",
-    "start": "micro index"
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
@@ -34,7 +33,6 @@
   "dependencies": {
     "ejs": "^2.5.6",
     "express": "^4.15.2",
-    "socket.io": "^1.7.3",
-    "micro": "latest"
+    "socket.io": "^1.7.3"
   }
 }
