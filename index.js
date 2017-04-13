@@ -25,10 +25,10 @@ function newConnection(socket) {
   console.log('new connection:' + socket.id);
 
   // Do this if you receive message
-  socket.on('message', sendTo);
+  socket.on('message', sendToClient);
 
-  function sendTo(data) {
+  function sendToClient(msg) {
     // Send to other clients
-    io.emit('message', data);
+    io.emit('message', msg);
   }
 }
