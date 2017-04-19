@@ -7,10 +7,19 @@
     "express": "^4.15.2"
   },
   "devDependencies": {
-    "nodemon": "^1.11.0"
+    "nodemon": "^1.11.0",
+    "xo": "^0.18.1"
+  },
+  "xo": {
+    "semicolon": false,
+    "space": true,
+    "env": [
+      "node",
+      "browser"
+    ],
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "xo"
   },
   "repository": {
     "type": "git",
