@@ -6,14 +6,8 @@
 
 Code &amp; documentation for the Minor Class: Real-Time Web 📟
 
-[Live Version](https://minor-rtw-ermwnkjezw.now.sh/)
-
 ## :book: Introduction
-This is a basic chat app 🙃 to play around with the basics of `socket.io`.
-* Client emits message to the server
-* Server receives the messages
-* Server emits it to other clients
-* Client handles the incoming message
+
 
 ## ⚙ Installation & Development
 
