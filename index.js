@@ -39,7 +39,12 @@ app.get('/oauth', function (req, res) {
       }
     }, function (err, httpResponse, body) {
       console.log(body);
-      res.send('joe');
+      // Parse the response to json. We have access to the token here.
+      var accessToken = JSON.parse(body);
+
+      request('https://www.googleapis.com/youtube/v3/subscriptions?part=contentDetails&mine=true&access_token=' + accessToken.access_token, function (err, httpResponse, body) {
+        res.send(body);
+      });
     });
 });
 
