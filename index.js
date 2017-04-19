@@ -1,3 +1,4 @@
+// Require express module
 var express = require('express');
 
 var app = express();
@@ -9,15 +10,16 @@ var host = process.env.HOST || '0.0.0.0';
 // Set src as static folder
 app.use(express.static('src'));
 
-// Set view engine to ejs and views folder
+// Templating Engine - Set view engine to ejs and views folder
 app.set('view engine', 'ejs');
 app.set('views', 'views');
 
-// Render index.ejs if you get response
+// Route - Render index.ejs if you get response
 app.get('/', function (req, res) {
   res.render('index.ejs');
 });
 
+// Starts a UNIX socket and listen for connections
 app.listen(port, host, function () {
   console.log('It has works on', host, port);
 });
