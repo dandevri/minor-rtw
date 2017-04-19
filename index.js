@@ -10,7 +10,7 @@ var dot = require('dotenv').config();
 var app = express();
 
 // Add environment variables for deployment
-var port = process.env.PORT || '3000';
+var port = process.env.PORT || 3000;
 var host = process.env.HOST || '0.0.0.0';
 
 // Set src as static folder
@@ -36,11 +36,10 @@ app.get('/oauth', function (req, res) {
         client_secret: process.env.CLIENT_SECRET, // eslint-disable-line
         redirect_uri: process.env.REDIRECT_URI, // eslint-disable-line
         grant_type: 'authorization_code' // eslint-disable-line
-      }, function(err, httpResponse, body) {
-        if (err) throw err
-;        console.log(body);
-        res.send('joe');
       }
+    }, function (err, httpResponse, body) {
+      console.log(body);
+      res.send('joe');
     });
 });
 
