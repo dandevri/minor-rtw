@@ -11,15 +11,17 @@
     "xo": "^0.18.1"
   },
   "xo": {
-    "semicolon": false,
+    "semicolon": true,
     "space": true,
+    "esnext": false,
     "env": [
       "node",
       "browser"
-    ],
+    ]
   },
   "scripts": {
-    "test": "xo"
+    "test": "xo",
+    "start-dev": "nodemon index.js"
   },
   "repository": {
     "type": "git",
