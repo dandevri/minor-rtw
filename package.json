@@ -4,6 +4,7 @@
   "description": "![Socket.io logo](https://socket.io/assets/img/logo.svg)",
   "main": "index.js",
   "dependencies": {
+    "ejs": "^2.5.6",
     "express": "^4.15.2"
   },
   "devDependencies": {
