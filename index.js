@@ -1,6 +1,9 @@
 // Require express module
 var express = require('express');
 
+// Require environment variables
+var dot = require('dotenv').config();
+
 var app = express();
 
 // Add environment variables for deployment
