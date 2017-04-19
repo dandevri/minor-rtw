@@ -22,6 +22,11 @@ app.get('/', function (req, res) {
   res.render('index.ejs');
 });
 
+// Route -
+app.get('/oauth', function (req, res) {
+  res.send('It has kinda works');
+});
+
 // Starts a UNIX socket and listen for connections
 app.listen(port, host, function () {
   console.log('It has works on', host, port);
