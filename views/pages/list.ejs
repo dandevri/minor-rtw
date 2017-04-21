@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%- include('../partials/meta.ejs') %>
+  </head>
+  <body>
+    <h1>Overzicht van je playlists</h1>
+    <section class="playlists">
+      <% for(var i = 0; i < data.items.length; i++) { %>
+        <article>
+          <p><%= data.items[i].snippet.title %></p>
+          <img src="<%= data.items[i].snippet.thumbnails.default.url %>">
+        </article>
+      <% } %>
+    </section>
+  </body>
+</html>
