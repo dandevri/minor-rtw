@@ -10,7 +10,7 @@ var dot = require('dotenv').config();
 var app = express();
 
 // Add environment variables for deployment
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 3100;
 var host = process.env.HOST || '0.0.0.0';
 
 // Set src as static folder
@@ -32,10 +32,10 @@ app.get('/oauth', function (req, res) {
       url: 'https://www.googleapis.com/oauth2/v4/token',
       form: {
         code: req.query.code, // Get code from request URL
-        client_id: process.env.CLIENT_ID, // eslint-disable-line
-        client_secret: process.env.CLIENT_SECRET, // eslint-disable-line
-        redirect_uri: process.env.REDIRECT_URI, // eslint-disable-line
-        grant_type: 'authorization_code' // eslint-disable-line
+        client_id: process.env.CLIENT_ID,
+        client_secret: process.env.CLIENT_SECRET,
+        redirect_uri: process.env.REDIRECT_URI,
+        grant_type: 'authorization_code'
       }
     }, function (err, httpResponse, body) {
       console.log(body);

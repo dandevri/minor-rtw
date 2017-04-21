@@ -24,6 +24,7 @@
   },
   "scripts": {
     "test": "xo",
+    "start": "node index.js",
     "start-dev": "nodemon index.js"
   },
   "repository": {
