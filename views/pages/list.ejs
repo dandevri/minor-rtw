@@ -7,10 +7,14 @@
     <h1>Overzicht van je playlists</h1>
     <section class="playlists">
       <% for(var i = 0; i < data.items.length; i++) { %>
-        <article>
-          <p><%= data.items[i].snippet.title %></p>
-          <img src="<%= data.items[i].snippet.thumbnails.default.url %>">
-        </article>
+        
+        <a href="#">
+          <article>
+            <p><%= data.items[i].snippet.title %></p>
+            <img src="<%= data.items[i].snippet.thumbnails.default.url %>">
+          </article>
+        </a>
+
       <% } %>
     </section>
   </body>
