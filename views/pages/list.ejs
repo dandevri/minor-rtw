@@ -6,16 +6,17 @@
   <body>
     <h1>Overzicht van je playlists</h1>
     <section class="playlists">
-      <% for(var i = 0; i < data.items.length; i++) { %>
+      <% for(var i = 0; i < playlists.items.length; i++) { %>
 
-        <a href="#">
+        <a href="<%= playlists.items[i].id %>">
           <article>
-            <p><%= data.items[i].snippet.title %></p>
-            <img src="<%= data.items[i].snippet.thumbnails.default.url %>">
+            <p><%= playlists.items[i].snippet.title %></p>
+            <img src="<%= playlists.items[i].snippet.thumbnails.default.url %>">
           </article>
         </a>
-
       <% } %>
+
+
     </section>
   </body>
 </html>
