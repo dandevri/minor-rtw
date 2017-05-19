@@ -16,5 +16,17 @@
   "bugs": {
     "url": "https://github.com/dandevri/minor-rtw/issues"
   },
-  "homepage": "https://github.com/dandevri/minor-rtw#readme"
+  "homepage": "https://github.com/dandevri/minor-rtw#readme",
+  "devDependencies": {
+    "xo": "^0.18.2"
+  },
+  "xo": {
+    "semicolon": true,
+    "space": true,
+    "esnext": false,
+    "env": [
+      "node",
+      "browser"
+    ]
+  }
 }
