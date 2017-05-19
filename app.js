@@ -50,6 +50,6 @@ function newConnection(socket) {
   // Send message to all clients
   function sendToAllClients(text) {
     io.sockets.emit('message', text);
-    console.log(text);
+    console.log('Dingen' + text);
   }
 }
