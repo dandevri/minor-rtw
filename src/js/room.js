@@ -4,20 +4,15 @@ var socket;
 socket = io.connect('http://localhost:3000');
 
 function sendValue() {
-  var text = document.querySelector('[contenteditable]').innerHTML;
+    var x = document.getElementById('text').value;
 
   // Send message from client
-  socket.emit('message', text);
-  // console.log(text);
+  socket.emit('message', x);
 
   // Handle message coming in
   socket.on('message', sendToClient);
 
   function sendToClient(newText) {
-    document.getElementById('text').innerHTML = newText;
+    document.getElementById('text').value = newText;
   }
 }
-
-setInterval(function () {
-  sendValue();
-}, 4000);
