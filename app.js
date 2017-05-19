@@ -42,4 +42,12 @@ io.sockets.on('connection', newConnection);
 // Socket argument fire this when there is a new connection
 function newConnection(socket) {
   console.log('New connection: ' + socket.id);
+
+  socket.on('message', sendToClients);
+
+  // Send message to all clients
+  function sendToClients(data) {
+    io.sockets.emit('message', data);
+    console.log(data);
+  }
 }
