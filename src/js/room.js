@@ -4,18 +4,15 @@ var socket;
 socket = io.connect('http://localhost:3000');
 
 function sendValue() {
-  var text = document.getElementById('text1').textContent;
+  var x = document.getElementById('text').value;
 
   // Send message from client
-  socket.emit('message', text);
+  socket.emit('message', x);
 
   // Handle message coming in
-  socket.on('message', text2);
+  socket.on('message', sendToClient);
 
-  function text2(data2) {
-    console.log('New message: ' + data2);
+  function sendToClient(newText) {
+    document.getElementById('result').innerHTML = socket.id + `<br>` + newText;
   }
 }
-
-// Fire on click
-document.getElementById('send').addEventListener('click', sendValue);
