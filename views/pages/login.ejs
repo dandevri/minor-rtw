@@ -2,14 +2,17 @@
 <html>
   <head>
     <%- include ../partials/meta -%>
-    <%- include ../partials/script -%>
+    <meta name="google-signin-client_id" content="613875210062-3e1mafmiuvdcqhkhcbst24pic6jkp64l.apps.googleusercontent.com">
     <link type="text/css" rel="stylesheet" href="/css/pages/login.css">
     <title>Login</title>
   </head>
 
   <body>
     <section class="login">
-      <button class="g-signin2" data-onsuccess="onSignIn"></button>
+      <div class="g-signin2" data-onsuccess="onSignIn"></div>
+      <a href="#" onclick="signOut();">Sign out</a>
     </section>
+  <script src="/js/login.js"></script>
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
   </body>
 </html>
