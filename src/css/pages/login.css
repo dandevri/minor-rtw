@@ -1,0 +1,17 @@
+button {
+  border: none;
+  background: none;
+}
+
+body {
+  background: url(/img/background.png);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login {
+  background-color: #2196f3;
+  padding: 2em;
+}
