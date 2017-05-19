@@ -13,6 +13,10 @@ app.get('/', function (req, res) {
   res.render('index');
 });
 
+app.get('/room', function (req, res) {
+  res.render('pages/room');
+});
+
 app.get('/login', function (req, res) {
   res.render('pages/login');
 });
