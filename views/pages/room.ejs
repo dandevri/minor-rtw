@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <%- include ../partials/meta -%>
+    <title>Room</title>
+    <!-- Add socket.io client library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.1/socket.io.js"></script>
+    <link type="text/css" rel="stylesheet" href="/css/pages/room.css">
+  </head>
+
+  <body>
+    <h1>Room</h1>
+    <textarea id="text" oninput="sendValue()"></textarea>
+    <script src="/js/room.js"></script>
+  </body>
+
+</html>
