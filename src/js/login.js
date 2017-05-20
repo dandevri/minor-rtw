@@ -13,15 +13,27 @@ function onSignIn(googleUser) {
   console.log(profileEmail);
   addProfileScreen();
   removeSignButton();
+  addSignOutButton();
 }
 
 function addProfileScreen() {
   document.querySelector('.profile').innerHTML +=
   `<div class="user">` +
-    `<p>Hi ` + profileName + `</p>` +
+    `<p>Hello, <strong>` + profileName + `</strong> </p>` +
     `<img src="` + profileImage + `">` +
     `<a href="/room">Go to room</a>` +
   `</div>`;
+}
+
+function renderButton() {
+  gapi.signin2.render('my-signin2', {
+    scope: 'profile email',
+    width: 240,
+    height: 50,
+    longtitle: true,
+    theme: 'dark',
+    onsuccess: onSignIn
+  });
 }
 
 function signOut() {
@@ -30,10 +42,19 @@ function signOut() {
     console.log('User signed out.');
   });
   removeProfileScreen();
+  removeSignOutButton();
 }
 
 function removeSignButton() {
   var selectButton = document.querySelector('.login').classList.add('hidden');
+}
+
+function addSignOutButton() {
+  var selectButton = document.querySelector('.g-signout').classList.remove('hidden');
+}
+
+function removeSignOutButton() {
+  var selectButton = document.querySelector('.g-signout').classList.add('hidden');
 }
 
 function addSignButton() {

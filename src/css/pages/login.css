@@ -9,13 +9,67 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-}
-
-.welcome {
-  background-color: #2196f3;
-  padding: 2em;
+  color: #2196f3;
 }
 
 .hidden {
   display: none;
+}
+
+.show {
+  display: block;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2em;
+  padding: 2em;
+}
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: #fff;
+  padding: 2em;
+  box-shadow: 0 10px 10px rgba(0,0,0,0.10), 0 6px 6px rgba(0,0,0,0.12);
+}
+
+.profile {
+  text-align: center;
+}
+
+h1 {
+  font-size: 3em;
+}
+
+img {
+  border-radius: 100%;
+  border: 0.15em solid #bbdefb;
+}
+
+.logo {
+  width: 10vw;
+  margin-right: 2em;
+}
+
+a[href*="/room"] {
+  margin: 2em;
+  padding: 1em;
+  background-color: #2196f3;
+  color: white;
+  text-align: center;
+  transition: all 250ms;
+  font-weight: 700;
+}
+
+a[href*="/room"]:hover {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.10), 0 10px 10px rgba(0,0,0,0.10);
+}
+
+.user {
+  display: flex;
+  flex-direction: column;
 }
