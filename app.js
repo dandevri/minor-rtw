@@ -1,6 +1,7 @@
 var http = require('http');
 var socket = require('socket.io');
 var express = require('express');
+var session = require('express-session');
 
 var port = process.env.PORT || '3000';
 var host = process.env.HOST || '0.0.0.0';
@@ -9,11 +10,20 @@ var host = process.env.HOST || '0.0.0.0';
 var app = express()
   // Host the files (make public client side)
   .use(express.static('src'))
+
+  // Parse dem cookies
+  .use(session({
+    // Keycode used in cookies
+    secret: 'youpad',
+    // Save stuff even when server is down
+    resave: false,
+    saveUninitialized: true
+  }))
+
   .set('views', 'views')
   .set('view engine', 'ejs')
-  .get('/', renderIndex)
-  .get('/room', renderRoom)
-  .get('/login', renderLogin);
+  .get('/', renderLogin)
+  .get('/room', renderRoom);
 
 var server = http.createServer(app);
 
@@ -24,15 +34,12 @@ server.listen(port, function () {
   console.log('Running on:', host, port);
 });
 
-function renderIndex(req, res) {
-  res.render('index');
-}
-
 function renderRoom(req, res) {
   res.render('pages/room');
 }
 
 function renderLogin(req, res) {
+  console.log(req.session);
   res.render('pages/login');
 }
 
