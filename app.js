@@ -36,6 +36,9 @@ function renderLogin(req, res) {
   res.render('pages/login');
 }
 
+/* Socket.IO server-side
+------------------------------ */
+
 // Deal with connection event
 io.sockets.on('connection', newConnection);
 
@@ -50,6 +53,10 @@ function newConnection(socket) {
   // Send message to all clients
   function sendToAllClients(text) {
     io.sockets.emit('message', text);
-    console.log('Dingen' + text);
   }
+
+  // Client disconnect
+  socket.on('disconnect', function () {
+    console.log('User disconnected: ' + socket.id);
+  });
 }
