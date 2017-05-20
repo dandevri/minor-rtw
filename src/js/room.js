@@ -4,10 +4,11 @@ var socket;
 socket = io.connect('http://localhost:3000');
 
 function sendValue() {
-    var x = document.getElementById('text').value;
+  var x = document.getElementById('text').value;
+  var video = document.querySelector('.video');
 
   // Send message from client
-  socket.emit('message', x);
+  socket.emit('message', x, video);
 
   // Handle message coming in
   socket.on('message', sendToClient);
