@@ -22,9 +22,8 @@ var app = express()
 
   .set('views', 'views')
   .set('view engine', 'ejs')
-  .get('/', renderIndex)
-  .get('/room', renderRoom)
-  .get('/login', renderLogin);
+  .get('/', renderLogin)
+  .get('/room', renderRoom);
 
 var server = http.createServer(app);
 
@@ -34,10 +33,6 @@ var io = socket(server);
 server.listen(port, function () {
   console.log('Running on:', host, port);
 });
-
-function renderIndex(req, res) {
-  res.render('index');
-}
 
 function renderRoom(req, res) {
   res.render('pages/room');
