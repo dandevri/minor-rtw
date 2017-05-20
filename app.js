@@ -10,6 +10,16 @@ var host = process.env.HOST || '0.0.0.0';
 var app = express()
   // Host the files (make public client side)
   .use(express.static('src'))
+
+  // Parse dem cookies
+  .use(session({
+    // Keycode used in cookies
+    secret: 'youpad',
+    // Save stuff even when server is down
+    resave: false,
+    saveUninitialized: true
+  }))
+
   .set('views', 'views')
   .set('view engine', 'ejs')
   .get('/', renderIndex)
@@ -34,6 +44,7 @@ function renderRoom(req, res) {
 }
 
 function renderLogin(req, res) {
+  console.log(req.session);
   res.render('pages/login');
 }
 
