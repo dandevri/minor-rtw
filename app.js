@@ -1,6 +1,7 @@
 var http = require('http');
 var socket = require('socket.io');
 var express = require('express');
+var session = require('express-session');
 
 var port = process.env.PORT || '3000';
 var host = process.env.HOST || '0.0.0.0';
