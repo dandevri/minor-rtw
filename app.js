@@ -1,7 +1,6 @@
 var http = require('http');
 var socket = require('socket.io');
 var express = require('express');
-var session = require('express-session');
 
 var port = process.env.PORT || '3000';
 var host = process.env.HOST || '0.0.0.0';
@@ -10,15 +9,6 @@ var host = process.env.HOST || '0.0.0.0';
 var app = express()
   // Host the files (make public client side)
   .use(express.static('src'))
-
-  // Parse dem cookies
-  .use(session({
-    // Keycode used in cookies
-    secret: 'youpad',
-    // Save stuff even when server is down
-    resave: false,
-    saveUninitialized: true
-  }))
 
   .set('views', 'views')
   .set('view engine', 'ejs')
