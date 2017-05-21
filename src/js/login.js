@@ -11,6 +11,13 @@ function onSignIn(googleUser) {
   console.log(profileImage);
   profileEmail = profile.getEmail();
   console.log(profileEmail);
+
+  localforage.setItem('userProfile', {
+    profileName: profileName,
+    profileImage: profileImage,
+    profileEmail: profileEmail
+  });
+
   addProfileScreen();
   removeSignButton();
   addSignOutButton();
