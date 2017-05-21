@@ -1,7 +1,4 @@
-var socket;
-
-// Connect to the server
-socket = io.connect('http://localhost:3000');
+var socket = io();
 
 localforage.getItem('userProfile', function(err, data) {
   document.querySelector('.profile').innerHTML +=
@@ -10,6 +7,10 @@ localforage.getItem('userProfile', function(err, data) {
     `<img src="` + data.profileImage + `">` +
     `<a href="/room">Go to room</a>` +
   `</div>`;
+});
+
+socket.on('NEW_VIDEO', function(message) {
+  document.querySelector('iframe').src = message;
 });
 
 document.getElementById('search').onsubmit = function() {

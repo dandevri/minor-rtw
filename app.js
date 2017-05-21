@@ -52,7 +52,8 @@ function newConnection(socket) {
 
   // Send textarea message to all clients
   function sendSearchfield(field) {
-    console.log(field);
+    // hier komt een api rekwest naar utub.
+    io.emit('NEW_VIDEO', `https://www.youtube.com/embed?listType=search&list=${encodeURIComponent(field)}`);
   }
 
   // Send textarea message to all clients
