@@ -1,16 +1,33 @@
 var socket = io();
 
 localforage.getItem('userProfile', function(err, data) {
-  document.querySelector('.profile').innerHTML +=
-  `<div class="user">` +
-    `<p>Hello, <strong>` + data.profileName + `</strong> </p>` +
-    `<img src="` + data.profileImage + `">` +
-    `<a href="/room">Go to room</a>` +
-  `</div>`;
+  if (!document.querySelector(`[data-id="${socket.io.engine.id}"]`)) {
+    document.querySelector('.profile').innerHTML += createUserHTML({
+      id: socket.io.engine.id,
+      userProfile: data
+    }, true);
+  }
+  socket.emit('CONNECT_USER', data);
 });
 
+function createUserHTML(data, current = false) {
+  return `
+    <div data-id="${data.id}" class="user ${current ? 'admin' : ''}">
+      <p><strong>${data.userProfile.profileName}</strong></p>
+      <img src="${data.userProfile.profileImage}">
+      <a href="/room">Go to room</a>
+    </div>`;
+}
 socket.on('NEW_VIDEO', function(message) {
   document.querySelector('iframe').src = message;
+});
+
+socket.on('CONNECT_USER', function(data) {
+  document.querySelector('.profile').innerHTML += createUserHTML(data);
+});
+
+socket.on('DISCONNECT_USER', function(id) {
+  document.querySelector(`[data-id="${id}"]`).remove();
 });
 
 document.getElementById('search').onsubmit = function() {

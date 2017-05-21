@@ -24,8 +24,10 @@ server.listen(port, function () {
   console.log('Running on:', host, port);
 });
 
+var connectedUsers = {};
+
 function renderRoom(req, res) {
-  res.render('pages/room');
+  res.render('pages/room', {connectedUsers: connectedUsers});
 }
 
 function renderLogin(req, res) {
@@ -43,6 +45,14 @@ io.sockets.on('connection', newConnection);
 function newConnection(socket) {
   // Log the socket id
   console.log('New connection: ' + socket.id);
+
+  socket.on('CONNECT_USER', function(userProfile) {
+    connectedUsers[socket.id] = userProfile;
+    socket.broadcast.emit('CONNECT_USER', {
+      userProfile: userProfile,
+      id: socket.id
+    });
+  });
 
   // When textArea received from client
   socket.on('textArea', sendTextarea);
@@ -65,5 +75,7 @@ function newConnection(socket) {
   // Client disconnect
   socket.on('disconnect', function () {
     console.log('User disconnected: ' + socket.id);
+    socket.broadcast.emit('DISCONNECT_USER', socket.id);
+    delete connectedUsers[socket.id];
   });
 }
