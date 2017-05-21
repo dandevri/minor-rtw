@@ -54,12 +54,21 @@ function newConnection(socket) {
   // Log the socket id
   console.log('New connection: ' + socket.id);
 
-  // When message received from client
-  socket.on('message', sendToAllClients);
+  // When textArea received from client
+  socket.on('textArea', sendTextarea);
 
-  // Send message to all clients
-  function sendToAllClients(text) {
-    io.sockets.emit('message', text);
+  // When searchField received from client
+  socket.on('searchField', sendSearchfield);
+
+  // Send textarea message to all clients
+  function sendSearchfield(field) {
+    console.log(field);
+  }
+
+  // Send textarea message to all clients
+  function sendTextarea(text) {
+    io.sockets.emit('textArea', text);
+    console.log(text);
   }
 
   // Client disconnect

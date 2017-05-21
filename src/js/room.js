@@ -3,15 +3,26 @@ var socket;
 // Connect to the server
 socket = io.connect('http://localhost:3000');
 
-function sendValue() {
-  var x = document.getElementById('text').value;
-  var video = document.querySelector('.video');
+document.getElementById('search').onsubmit = function() {
+  sendSearchfield();
+  return false;
+};
+
+function sendSearchfield() {
+  var searchField = document.getElementById('keyword').value;
 
   // Send message from client
-  socket.emit('message', x, video);
+  socket.emit('searchField', searchField);
+}
+
+function sendValue() {
+  var textArea = document.getElementById('text').value;
+
+  // Send message from client
+  socket.emit('textArea', textArea);
 
   // Handle message coming in
-  socket.on('message', sendToClient);
+  socket.on('textArea', sendToClient);
 
   function sendToClient(newText) {
     document.getElementById('text').value = newText;
