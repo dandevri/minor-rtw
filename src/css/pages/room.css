@@ -134,5 +134,5 @@ input:focus {
 
 #connection.offline {
   transform: translateY(0vh);
-	box-shadow: 0 0 0 150vmax rgba(255,255,255,.8);
+	box-shadow: 0 0 0 150vmax rgba(255,255,255,.98);
 }
