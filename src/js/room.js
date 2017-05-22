@@ -59,3 +59,11 @@ function sendValue() {
     document.getElementById('text').value = newText;
   }
 }
+
+/* Client offline event */
+window.addEventListener('online', updateOnlineStatus);
+window.addEventListener('offline', updateOnlineStatus);
+
+function updateOnlineStatus(event) {
+  var notification = document.getElementById('#connection');
+}
