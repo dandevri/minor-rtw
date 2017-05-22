@@ -65,5 +65,13 @@ window.addEventListener('online', updateOnlineStatus);
 window.addEventListener('offline', updateOnlineStatus);
 
 function updateOnlineStatus(event) {
-  var notification = document.getElementById('#connection');
+  var notification = document.getElementById('connection');
+
+  if (navigator.onLine) {
+    document.body.classList.remove('offline');
+    notification.classList.remove('show');
+  } else {
+    document.body.classList.add('offline');
+    notification.classList.add('show');
+  }
 }
