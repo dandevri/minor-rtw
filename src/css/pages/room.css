@@ -73,8 +73,14 @@ input {
   flex: 2;
   padding: 0.5em;
   border: none;
-  border-bottom: 1px solid #2196f3;
+  border-bottom: 1px solid #cfd8dc;
   transition: all 250ms;
+  font-weight: 700;
+  color: #2196f3;
+}
+
+input::-webkit-input-placeholder {
+  color: #cfd8dc;
 }
 
 input:focus {
@@ -100,5 +106,11 @@ input:focus {
   font-size: 0.8em;
   align-items: center;
   background-color: #1976d2;
-  padding: 1em 0em;
+  padding: 0.5em 0em;
+  border-radius: 1em;
+  transition: all 250ms;
+}
+
+.user:hover {
+  background-color: #2780d8;
 }
