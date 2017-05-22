@@ -16,6 +16,7 @@ nav li {
 
 .connected {
   display: flex;
+  align-items: center;
 }
 .connected li:first-child {
   margin-right: auto;
@@ -79,4 +80,25 @@ input {
 input:focus {
   outline: none;
   border-bottom: 3px solid #2196f3;
+}
+
+/* Topbar styling */
+.user img {
+  height: 100%;
+  width: 20%;
+  border-radius: 100%;
+  margin: 0em 1em;
+  border: 2px solid #fff;
+}
+
+.admin img {
+  border: 2px solid #fb8c00;
+}
+
+.user {
+  display: flex;
+  font-size: 0.8em;
+  align-items: center;
+  background-color: #1976d2;
+  padding: 1em 0em;
 }

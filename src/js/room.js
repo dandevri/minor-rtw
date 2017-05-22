@@ -14,8 +14,7 @@ function createUserHTML(data, current = false) {
   return `
     <li data-id="${data.id}" class="user ${current ? 'admin' : ''}">
       <img src="${data.userProfile.profileImage}">
-      <p><strong>${data.userProfile.profileName}</strong></p>
-      <a href="/room">Go to room</a>
+      <p>${data.userProfile.profileName}</p>
     </li>`;
 }
 

@@ -19,10 +19,10 @@
           Object.keys(connectedUsers).forEach(function(id) {
             var userProfile = connectedUsers[id];
             html += `
+              <!-- Default user (admin) -->
               <li data-id="${id}" class="user">
                 <img src="${userProfile.profileImage}">
-                <p><strong>${userProfile.profileName}</strong></p>
-                <a href="/room">Go to room</a>
+                <p>${userProfile.profileName}</p>
               </li>`;
           }) %>
           <%- html %>

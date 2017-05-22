@@ -65,7 +65,9 @@ function newConnection(socket) {
   // Send textarea message to all clients
   function sendSearchfield(field) {
     // Api request to Youtube send it to all clients
-    io.emit('NEW_VIDEO', `https://www.youtube.com/embed?listType=search&list=${encodeURIComponent(field)}`);
+    io.emit('NEW_VIDEO',
+    // EncodeURI Make sure spaces work
+     `https://www.youtube.com/embed?listType=search&list=${encodeURIComponent(field)}`);
   }
 
   // Send textarea message to all clients
