@@ -2,7 +2,7 @@ var socket = io();
 
 localforage.getItem('userProfile', function(err, data) {
   if (!document.querySelector(`[data-id="${socket.io.engine.id}"]`)) {
-    document.querySelector('.profile').innerHTML += createUserHTML({
+    document.querySelector('.connected').innerHTML += createUserHTML({
       id: socket.io.engine.id,
       userProfile: data
     }, true);
@@ -12,25 +12,30 @@ localforage.getItem('userProfile', function(err, data) {
 
 function createUserHTML(data, current = false) {
   return `
-    <div data-id="${data.id}" class="user ${current ? 'admin' : ''}">
-      <p><strong>${data.userProfile.profileName}</strong></p>
+    <li data-id="${data.id}" class="user ${current ? 'admin' : ''}">
       <img src="${data.userProfile.profileImage}">
+      <p><strong>${data.userProfile.profileName}</strong></p>
       <a href="/room">Go to room</a>
-    </div>`;
+    </li>`;
 }
+
+// Put the message (iframe with) in the iframe tag
 socket.on('NEW_VIDEO', function(message) {
   document.querySelector('iframe').src = message;
 });
 
+// When user connects add a div in the topbar
 socket.on('CONNECT_USER', function(data) {
-  document.querySelector('.profile').innerHTML += createUserHTML(data);
+  document.querySelector('.connected').innerHTML += createUserHTML(data);
 });
 
+// When user disconnects
 socket.on('DISCONNECT_USER', function(id) {
   document.querySelector(`[data-id="${id}"]`).remove();
 });
 
-document.getElementById('search').onsubmit = function() {
+// On submit of the searchfield send the value to the server
+document.getElementById('search').onsubmit = function () {
   sendSearchfield();
   return false;
 };

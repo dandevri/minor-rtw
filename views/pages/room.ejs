@@ -14,20 +14,18 @@
     <nav>
       <ul class="connected">
         <li>Room 137</li>
-        <li class="profile">
         <%
           var html = '';
           Object.keys(connectedUsers).forEach(function(id) {
             var userProfile = connectedUsers[id];
             html += `
-              <div data-id="${id}" class="user">
-                <p><strong>${userProfile.profileName}</strong></p>
+              <li data-id="${id}" class="user">
                 <img src="${userProfile.profileImage}">
+                <p><strong>${userProfile.profileName}</strong></p>
                 <a href="/room">Go to room</a>
-              </div>`;
+              </li>`;
           }) %>
           <%- html %>
-        </li>
       </ul>
     </nav>
     <form id="search">

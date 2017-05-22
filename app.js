@@ -24,6 +24,7 @@ server.listen(port, function () {
   console.log('Running on:', host, port);
 });
 
+// Save for later use
 var connectedUsers = {};
 
 function renderRoom(req, res) {
@@ -46,7 +47,8 @@ function newConnection(socket) {
   // Log the socket id
   console.log('New connection: ' + socket.id);
 
-  socket.on('CONNECT_USER', function(userProfile) {
+  //
+  socket.on('CONNECT_USER', function (userProfile) {
     connectedUsers[socket.id] = userProfile;
     socket.broadcast.emit('CONNECT_USER', {
       userProfile: userProfile,
@@ -62,14 +64,13 @@ function newConnection(socket) {
 
   // Send textarea message to all clients
   function sendSearchfield(field) {
-    // hier komt een api rekwest naar utub.
+    // Api request to Youtube send it to all clients
     io.emit('NEW_VIDEO', `https://www.youtube.com/embed?listType=search&list=${encodeURIComponent(field)}`);
   }
 
   // Send textarea message to all clients
   function sendTextarea(text) {
     io.sockets.emit('textArea', text);
-    console.log(text);
   }
 
   // Client disconnect
