@@ -117,20 +117,12 @@ function removeDialog () {
 document.querySelector('#player1').addEventListener('play', function () {
   // Send message from client
   socket.emit('videoPlay', true);
-
-  /* Send video time update */
-  document.querySelector('#player1').addEventListener('timeupdate', function (event) {
-    var timeStamp = event.timeStamp;
-    // Send message from client
-    socket.emit('timeUpdate', timeStamp);
-  });
 });
 
 // Handle message coming in
 socket.on('videoPlay', changePlay);
 
 function changePlay() {
-  document.querySelector('#player1').removeEventListener('timeupdate');
   document.querySelector('#player1').play();
 }
 
@@ -146,6 +138,13 @@ socket.on('videoPause', changePause);
 function changePause() {
   document.querySelector('#player1').pause();
 }
+
+/* Send video time update */
+document.querySelector('#player1').addEventListener('timeupdate', function (event) {
+  var timeStamp = event.timeStamp;
+  // Send message from client
+  socket.emit('timeUpdate', timeStamp);
+});
 
 // Handle message coming in
 socket.on('timeUpdate', changeTime);
