@@ -7,6 +7,9 @@
     <title>Room</title>
     <!-- Add socket.io client library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.1/socket.io.js"></script>
+    <!-- Add mediaElement library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mediaelement/4.1.1/mediaelement-and-player.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mediaelement/4.1.1/mediaelementplayer.min.css">
     <link type="text/css" rel="stylesheet" href="/css/pages/room.css">
   </head>
 
@@ -34,7 +37,9 @@
       <button>Search</button>
     </form>
     <section>
-      <iframe class="video" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+      <video id="player1" preload="none">
+          <source type="video/youtube" src="https://www.youtube.com/watch?list=SRding&v=nKUh805FMWE" />
+      </video>
       <textarea autofocus id="text" oninput="sendValue()"></textarea>
     </section>
     <%- include ../partials/offline -%>
