@@ -3,6 +3,10 @@ var player = new MediaElementPlayer('player1', {
   stretching: 'responsive'
 });
 
+// document.querySelector('#player1').addEventListener('timeupdate', function(e) {
+//   console.log(e);
+// })
+
 /* localStorage
 --------------------------------------*/
 
@@ -108,3 +112,45 @@ function removeDialog () {
 
 /* Video player socket connection
 --------------------------------------*/
+
+/* Send play event */
+document.querySelector('#player1').addEventListener('play', function () {
+  // Send message from client
+  socket.emit('videoPlay', true);
+
+  /* Send video time update */
+  document.querySelector('#player1').addEventListener('timeupdate', function (event) {
+    var timeStamp = event.timeStamp;
+    // Send message from client
+    socket.emit('timeUpdate', timeStamp);
+  });
+});
+
+// Handle message coming in
+socket.on('videoPlay', changePlay);
+
+function changePlay() {
+  document.querySelector('#player1').removeEventListener('timeupdate');
+  document.querySelector('#player1').play();
+}
+
+/* Send pause event */
+document.querySelector('#player1').addEventListener('pause', function () {
+  //Send message from client
+  socket.emit('videoPause', true);
+});
+
+//Handle message coming in
+socket.on('videoPause', changePause);
+
+function changePause() {
+  document.querySelector('#player1').pause();
+}
+
+// Handle message coming in
+socket.on('timeUpdate', changeTime);
+
+function changeTime(data) {
+  console.log(data);
+  document.querySelector('#player1').setCurrentTime(data);
+}

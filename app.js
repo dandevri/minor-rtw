@@ -86,4 +86,24 @@ function newConnection(socket) {
     // Delete the property
     delete connectedUsers[socket.id];
   });
+
+  // When video playing received from client
+  socket.on('videoPlay', sendPlaying);
+ // Send to all client except self
+  function sendPlaying() {
+    socket.broadcast.emit('videoPlay', true);
+  }
+
+  // When video pause received from client
+  socket.on('videoPause', sendPause);
+  // Send to all client except self
+  function sendPause() {
+    socket.broadcast.emit('videoPause', true);
+  }
+
+  // When time update recieved from client
+  socket.on('timeUpdate', sendTime);
+  function sendTime(data) {
+    socket.broadcast.emit('timeUpdate', data);
+  }
 }
