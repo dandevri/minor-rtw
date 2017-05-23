@@ -45,7 +45,7 @@ section {
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 
-form {
+#search {
   display: flex;
   padding: 1em;
   background-color: #fff;
@@ -133,4 +133,29 @@ input:focus {
 #connection.offline {
   transform: translateY(0vh);
 	box-shadow: 0 0 0 150vmax rgba(255,255,255,.98);
+  z-index: 99999;
+}
+
+dialog {
+  z-index: 9999;
+  box-shadow: 0 0 0 150vmax rgba(255,255,255,.8);
+  max-width: 40vw;
+  line-height: 1.4;
+  border: 0.25em solid #1976d2;;
+}
+
+.instructions {
+  color: #1976d2;
+  line-height: 2;
+}
+
+#close {
+  padding: 1em 1em;
+  margin: 2em;
+}
+
+#box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

@@ -83,3 +83,11 @@ function updateOnlineStatus(event) {
     notification.classList.add('offline');
   }
 }
+
+function removeDialog () {
+  var dialog = document.getElementById('dialog');
+  var closeButton = document.getElementById('close');
+  closeButton.addEventListener('click', function () {
+    dialog.remove();
+  });
+}
