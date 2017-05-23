@@ -3,6 +3,9 @@ var player = new MediaElementPlayer('player1', {
   stretching: 'responsive'
 });
 
+/* localStorage
+--------------------------------------*/
+
 // Get the data from localStorage
 localforage.getItem('userProfile', function (err, data) {
   // Check own socket.id, otherwise append list item
@@ -27,6 +30,9 @@ function createUserHTML(data, current = false) {
     </li>`;
 }
 
+/* Topbar connection
+--------------------------------------*/
+
 // Put the message (iframe with) in the iframe tag
 socket.on('NEW_VIDEO', function (message) {
   document.querySelector('source').src = message;
@@ -43,6 +49,9 @@ socket.on('DISCONNECT_USER', function (id) {
   document.querySelector(`[data-id="${id}"]`).remove();
 });
 
+/* Input search
+--------------------------------------*/
+
 // On submit of the searchfield send the value to the server
 document.getElementById('search').onsubmit = function () {
   sendSearchfield();
@@ -55,6 +64,9 @@ function sendSearchfield() {
   // Send message from client
   socket.emit('searchField', searchField);
 }
+
+/* Textarea value
+--------------------------------------*/
 
 function sendValue() {
   var textArea = document.getElementById('text').value;
@@ -70,7 +82,9 @@ function sendValue() {
   }
 }
 
-/* Client offline event */
+/* Client offline event
+--------------------------------------*/
+
 window.addEventListener('online', updateOnlineStatus);
 window.addEventListener('offline', updateOnlineStatus);
 
@@ -91,3 +105,6 @@ function removeDialog () {
     dialog.remove();
   });
 }
+
+/* Video player socket connection
+--------------------------------------*/
