@@ -1,7 +1,8 @@
 var socket = io();
+var player = new MediaElementPlayer('player1');
 
 // Get the data from localStorage
-localforage.getItem('userProfile', function(err, data) {
+localforage.getItem('userProfile', function (err, data) {
   // Check own socket.id, otherwise append list item
   if (!document.querySelector(`[data-id="${socket.io.engine.id}"]`)) {
     document.querySelector('.connected').innerHTML += createUserHTML({
@@ -25,17 +26,17 @@ function createUserHTML(data, current = false) {
 }
 
 // Put the message (iframe with) in the iframe tag
-socket.on('NEW_VIDEO', function(message) {
-  document.querySelector('iframe').src = message;
+socket.on('NEW_VIDEO', function (message) {
+  document.querySelector('video').src = message;
 });
 
 // When user connects add a div in the topbar
-socket.on('CONNECT_USER', function(data) {
+socket.on('CONNECT_USER', function (data) {
   document.querySelector('.connected').innerHTML += createUserHTML(data);
 });
 
 // When user disconnects
-socket.on('DISCONNECT_USER', function(id) {
+socket.on('DISCONNECT_USER', function (id) {
   // Remove the list item when user disconnects
   document.querySelector(`[data-id="${id}"]`).remove();
 });

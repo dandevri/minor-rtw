@@ -65,7 +65,7 @@ function newConnection(socket) {
   // When searchField received from client
   socket.on('searchField', sendSearchfield);
 
-  // Send textarea message to all clients
+  // Send searchfield message to all clients
   function sendSearchfield(field) {
     // Api request to Youtube send it to all clients
     io.emit('NEW_VIDEO',
