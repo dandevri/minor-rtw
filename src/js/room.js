@@ -1,5 +1,7 @@
 var socket = io();
-var player = new MediaElementPlayer('player1');
+var player = new MediaElementPlayer('player1', {
+  stretching: 'responsive'
+});
 
 // Get the data from localStorage
 localforage.getItem('userProfile', function (err, data) {
@@ -27,7 +29,7 @@ function createUserHTML(data, current = false) {
 
 // Put the message (iframe with) in the iframe tag
 socket.on('NEW_VIDEO', function (message) {
-  document.querySelector('video').src = message;
+  document.querySelector('source').src = message;
 });
 
 // When user connects add a div in the topbar
