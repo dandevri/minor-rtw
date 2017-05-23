@@ -16,6 +16,7 @@
         <li>Room 137</li>
         <%
           var html = '';
+          <!-- Key is same as socket.id loop over all id's, get userProfile for every id. -->
           Object.keys(connectedUsers).forEach(function(id) {
             var userProfile = connectedUsers[id];
             html += `
