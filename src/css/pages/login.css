@@ -23,8 +23,7 @@ body {
 header {
   display: flex;
   align-items: center;
-  margin-bottom: 2em;
-  padding: 2em;
+  padding: 1em;
 }
 
 main {
@@ -72,4 +71,18 @@ a[href*="/room"]:hover {
 .user {
   display: flex;
   flex-direction: column;
+}
+
+section {
+  width: 50vw;
+  text-align: center;
+}
+
+p {
+  line-height: 2;
+}
+
+h2 {
+  line-height: 2;
+  margin: 0em;
 }
