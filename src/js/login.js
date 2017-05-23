@@ -12,6 +12,7 @@ function onSignIn(googleUser) {
   profileEmail = profile.getEmail();
   console.log(profileEmail);
 
+  // Put the profile name in localstorage using localforage
   localforage.setItem('userProfile', {
     profileName: profileName,
     profileImage: profileImage,
@@ -25,11 +26,11 @@ function onSignIn(googleUser) {
 
 function addProfileScreen() {
   document.querySelector('.profile').innerHTML +=
-  `<div class="user">` +
-    `<p>Hello, <strong>` + profileName + `</strong> </p>` +
-    `<img src="` + profileImage + `">` +
-    `<a href="/room">Go to room</a>` +
-  `</div>`;
+  `<div class="user">
+    <p>Hello, <strong>${profileName}</strong></p>
+    <img src="${profileImage}">
+    <a href="/room">Go to room</a>
+  </div>`;
 }
 
 function renderButton() {

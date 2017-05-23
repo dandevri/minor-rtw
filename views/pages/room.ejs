@@ -16,6 +16,7 @@
         <li>Room 137</li>
         <%
           var html = '';
+          <!-- Key is same as socket.id loop over all id's, get userProfile for every id. -->
           Object.keys(connectedUsers).forEach(function(id) {
             var userProfile = connectedUsers[id];
             html += `
@@ -36,6 +37,7 @@
       <iframe class="video" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
       <textarea autofocus id="text" oninput="sendValue()"></textarea>
     </section>
+    <%- include ../partials/offline -%>
     <script src="/js/room.js"></script>
   </body>
 

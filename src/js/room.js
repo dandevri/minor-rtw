@@ -1,16 +1,22 @@
 var socket = io();
 
+// Get the data from localStorage
 localforage.getItem('userProfile', function(err, data) {
+  // Check own socket.id, otherwise append list item
   if (!document.querySelector(`[data-id="${socket.io.engine.id}"]`)) {
     document.querySelector('.connected').innerHTML += createUserHTML({
       id: socket.io.engine.id,
       userProfile: data
+      // Give true to check in createUserHTML
     }, true);
   }
+  // Send connect user to the client with the data
   socket.emit('CONNECT_USER', data);
 });
 
+// Create the list item with the data from google sign in.
 function createUserHTML(data, current = false) {
+  // If current is true add admin class. If socket.id is true to make admin
   return `
     <li data-id="${data.id}" class="user ${current ? 'admin' : ''}">
       <img src="${data.userProfile.profileImage}">
@@ -30,6 +36,7 @@ socket.on('CONNECT_USER', function(data) {
 
 // When user disconnects
 socket.on('DISCONNECT_USER', function(id) {
+  // Remove the list item when user disconnects
   document.querySelector(`[data-id="${id}"]`).remove();
 });
 
@@ -57,5 +64,19 @@ function sendValue() {
 
   function sendToClient(newText) {
     document.getElementById('text').value = newText;
+  }
+}
+
+/* Client offline event */
+window.addEventListener('online', updateOnlineStatus);
+window.addEventListener('offline', updateOnlineStatus);
+
+function updateOnlineStatus(event) {
+  var notification = document.getElementById('connection');
+
+  if (navigator.onLine) {
+    notification.classList.remove('offline');
+  } else {
+    notification.classList.add('offline');
   }
 }

@@ -27,6 +27,7 @@ server.listen(port, function () {
 // Save for later use
 var connectedUsers = {};
 
+// Send connectedUser to client
 function renderRoom(req, res) {
   res.render('pages/room', {connectedUsers: connectedUsers});
 }
@@ -47,10 +48,12 @@ function newConnection(socket) {
   // Log the socket id
   console.log('New connection: ' + socket.id);
 
-  //
+  // Emit to all other clients except user.
   socket.on('CONNECT_USER', function (userProfile) {
+    // For every user add userProfile to object
     connectedUsers[socket.id] = userProfile;
     socket.broadcast.emit('CONNECT_USER', {
+      // Send the user profile and socket id to client
       userProfile: userProfile,
       id: socket.id
     });
@@ -78,7 +81,9 @@ function newConnection(socket) {
   // Client disconnect
   socket.on('disconnect', function () {
     console.log('User disconnected: ' + socket.id);
+    // Broadcast to all other clients. Delete the socket.id from the connecter
     socket.broadcast.emit('DISCONNECT_USER', socket.id);
+    // Delete the property
     delete connectedUsers[socket.id];
   });
 }
