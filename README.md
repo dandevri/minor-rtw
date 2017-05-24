@@ -1,6 +1,6 @@
 # minor-rtw
 
-![Github_Banner](github/GitHub_Banner.jpg)
+![Github_Banner](github/Github_Banner.jpg)
 > Real-Time note taking app
 
 [Live version](https://minor-rtw-pstgcfaisc.now.sh/)
