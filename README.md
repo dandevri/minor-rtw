@@ -22,6 +22,8 @@ With **YouPad** you can take notes with other students, in real-time! Load in a 
 * **Video change:** Update the video based on event manipuation (play / pause).
 * **Offline:** The user gets a notification when the client is offline.
 
+*To make sure the iFrame works over sockets it's wrapped with the MediaElement library. The iFrame is now HTML5 video and I can call the event and methods of the video.*
+
 ### Data life cycle
 To use the google profile returned by Google Sign on the room page I used localForage to store it in localStorage. It adds the `socket.id` with the `userProfile data` to the `connectedUser`. When a client disconnects that client gets removed from the array.
 
@@ -56,6 +58,7 @@ Server running 0.0.0.0:3000
 * [`ejs 1.0`](http://www.embeddedjs.com/): Client side templating engine
 * [`socket.io 2.0.1`](https://socket.io/): Real-Time engine framework
 * [`localForage 1.5.0`](https://github.com/localForage/localForage): Simple storage library for JavaScript
+* [`MediaElement 4.1.1.`](https://github.com/mediaelement/mediaelement): Simple storage library for JavaScript
 
 **External**
 * [`Google Identity`](https://developers.google.com/identity/): Authenticating flow
