@@ -39,7 +39,7 @@ function createUserHTML(data, current = false) {
 
 // Put the message (iframe with) in the iframe tag
 socket.on('NEW_VIDEO', function (message) {
-  document.querySelector('source').src = message;
+  document.querySelector('#player1').src = message;
 });
 
 // When user connects add a div in the topbar
@@ -137,19 +137,4 @@ socket.on('videoPause', changePause);
 
 function changePause() {
   document.querySelector('#player1').pause();
-}
-
-/* Send video time update */
-document.querySelector('#player1').addEventListener('timeupdate', function (event) {
-  var timeStamp = event.timeStamp;
-  // Send message from client
-  socket.emit('timeUpdate', timeStamp);
-});
-
-// Handle message coming in
-socket.on('timeUpdate', changeTime);
-
-function changeTime(data) {
-  console.log(data);
-  document.querySelector('#player1').setCurrentTime(data);
 }

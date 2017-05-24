@@ -33,7 +33,6 @@ function renderRoom(req, res) {
 }
 
 function renderLogin(req, res) {
-  console.log(req.session);
   res.render('pages/login');
 }
 
@@ -70,7 +69,7 @@ function newConnection(socket) {
     // Api request to Youtube send it to all clients
     io.emit('NEW_VIDEO',
     // EncodeURI Make sure spaces work
-     `https://www.youtube.com/embed?listType=search&list=${encodeURIComponent(field)}`);
+     `${(field)}`);
   }
 
   // Send textarea message to all clients
@@ -99,11 +98,5 @@ function newConnection(socket) {
   // Send to all client except self
   function sendPause() {
     socket.broadcast.emit('videoPause', true);
-  }
-
-  // When time update recieved from client
-  socket.on('timeUpdate', sendTime);
-  function sendTime(data) {
-    socket.broadcast.emit('timeUpdate', data);
   }
 }
