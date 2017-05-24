@@ -1,6 +1,6 @@
 # minor-rtw
 
-![Github Banner](github/GitHub_Banner.jpg)
+![Github_Banner](github/GitHub_Banner.jpg)
 > Real-Time note taking app
 
 [Live version](https://minor-rtw-pstgcfaisc.now.sh/)
@@ -15,6 +15,11 @@ With **YouPad** you can take notes with other students, in real-time! Load in a 
 1. See notes from other students
 
 ### Events
+* **User connection:** Add a user in the topbar when conntected.
+* **User disconnected:** Remove user in the topbar when disconnected.
+* **Video add:** Update the video on all clients.
+* **Emit notes:** Emit the changes in notes to all clients.
+* **Video change:** Update the video based on event manipuation (play / pause).
 
 ## ⚙ Installation & Development
 
