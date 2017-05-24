@@ -20,6 +20,7 @@ With **YouPad** you can take notes with other students, in real-time! Load in a 
 * **Video add:** Update the video on all clients.
 * **Emit notes:** Emit the changes in notes to all clients.
 * **Video change:** Update the video based on event manipuation (play / pause).
+* **Offline:** The user gets a notification when the client is offline.
 
 ### Data life cycle
 To use the google profile returned by Google Sign on the room page I used localForage to store it in localStorage. It adds the `socket.id` with the `userProfile data` to the `connectedUser`. When a client disconnects that client gets removed from the array.
